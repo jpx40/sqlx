@@ -127,7 +127,7 @@ macro_rules! impl_database_ext {
     }
 }
 
-#[cfg(any(feature = "postgres", feature = "mysql", feature = "sqlite"))]
+#[cfg(any(feature = "postgres", feature = "mysql", feature = "duckdb", feature = "sqlite"))]
 macro_rules! impl_describe_blocking {
     ($database:path $(,)?) => {
         fn describe_blocking(
