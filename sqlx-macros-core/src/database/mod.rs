@@ -74,7 +74,7 @@ impl<DB: DatabaseExt> CachingDescribeBlocking<DB> {
     }
 }
 
-#[cfg(any(feature = "postgres", feature = "mysql", feature = "sqlite"))]
+#[cfg(any(feature = "postgres", feature = "mysql",feature = "duckdb" , feature = "sqlite"))]
 macro_rules! impl_database_ext {
     (
         $database:path {
@@ -152,7 +152,7 @@ macro_rules! impl_describe_blocking {
     };
 }
 
-#[cfg(any(feature = "postgres", feature = "mysql", feature = "sqlite"))]
+#[cfg(any(feature = "postgres", feature = "mysql",feature = "duckdb" , feature = "sqlite"))]
 macro_rules! input_ty {
     ($ty:ty, $input:ty) => {
         stringify!($input)
@@ -171,6 +171,9 @@ mod mysql;
 #[cfg(feature = "sqlite")]
 mod sqlite;
 
+#[cfg(feature = "duckdb")]
+mod duckdb;
+
 mod fake_sqlx {
     pub use sqlx_core::*;
 
@@ -182,4 +185,7 @@ mod fake_sqlx {
 
     #[cfg(feature = "sqlite")]
     pub use sqlx_sqlite as sqlite;
+
+    #[cfg(feature = "duckdb")]
+    pub use sqlx_duckdb as duckdb;
 }
