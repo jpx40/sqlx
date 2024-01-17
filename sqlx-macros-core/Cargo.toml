@@ -24,6 +24,7 @@ migrate = ["sqlx-core/migrate"]
 mysql = ["sqlx-mysql"]
 postgres = ["sqlx-postgres"]
 sqlite = ["sqlx-sqlite"]
+duckdb = ["sqlx-duckdb"]
 
 # type integrations
 json = ["sqlx-core/json", "sqlx-mysql?/json", "sqlx-sqlite?/json"]

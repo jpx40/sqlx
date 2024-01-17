@@ -57,7 +57,7 @@ macros = ["sqlx-macros"]
 migrate = ["sqlx-core/migrate", "sqlx-macros?/migrate", "sqlx-mysql?/migrate", "sqlx-postgres?/migrate", "sqlx-sqlite?/migrate"]
 
 # intended mainly for CI and docs
-all-databases = ["mysql", "sqlite", "postgres", "any"]
+all-databases = ["mysql", "sqlite", "postgres","duckdb" ,"any"]
 _unstable-all-types = [
     "bigdecimal",
     "rust_decimal",
@@ -98,6 +98,7 @@ any = ["sqlx-core/any", "sqlx-mysql?/any", "sqlx-postgres?/any", "sqlx-sqlite?/a
 postgres = ["sqlx-postgres", "sqlx-macros?/postgres"]
 mysql = ["sqlx-mysql", "sqlx-macros?/mysql"]
 sqlite = ["sqlx-sqlite", "sqlx-macros?/sqlite"]
+duckdb = ["sqlx-duckdb", "sqlx-macros?/duckdb"]
 
 # types
 json = ["sqlx-macros?/json", "sqlx-mysql?/json", "sqlx-postgres?/json", "sqlx-sqlite?/json"]
